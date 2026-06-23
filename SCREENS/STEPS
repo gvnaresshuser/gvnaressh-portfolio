@@ -1,0 +1,23 @@
+npm create vite@latest gvnaressh
+
+https://tailwindcss.com/docs/installation/using-vite
+
+---
+
+npm install tailwindcss @tailwindcss/vite
+npm install axios react-router-dom sweetalert2
+npm install lucide-react
+npm install animate.css
+
+---
+
+This gives you a complete mini CRUD application:
+
+✅ Dashboard (About Me)
+✅ Register User
+✅ View Users
+✅ Edit User (SweetAlert2)
+✅ Delete User (SweetAlert2)
+✅ React Router Navigation
+✅ Axios API Integration
+✅ Tailwind CSS Styling
