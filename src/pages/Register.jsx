@@ -13,13 +13,37 @@ import {
 import "animate.css";
 
 export default function Register() {
+  const [showCourses, setShowCourses] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     mobile: "",
     collegeOrCompany: "",
     profession: "",
+    interestedCourses: [],
   });
+
+  const courses = [
+    "ReactJS",
+    "NestJS",
+    "Java Spring Boot",
+    "NodeJS",
+    "PostgreSQL",
+    "MongoDB",
+    "Python",
+    "Django",
+    "Angular",
+    "AWS",
+  ];
+
+  const handleCourseChange = (course) => {
+    setFormData((prev) => ({
+      ...prev,
+      interestedCourses: prev.interestedCourses.includes(course)
+        ? prev.interestedCourses.filter((c) => c !== course)
+        : [...prev.interestedCourses, course],
+    }));
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -30,27 +54,33 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (formData.interestedCourses.length === 0) {
+      Swal.fire({
+        icon: "warning",
+        title: "Course Required",
+        text: "Please select at least one course.",
+      });
+      return;
+    }
     try {
       await API.post("/users", formData);
-
-  Swal.fire({
-    icon: "success",
-    title: "🎉 Registration Successful!",
-    text: "User has been registered successfully.",
-    background: "#0f172a",
-    color: "#ffffff",
-    iconColor: "#22c55e",
-    timer: 2500,
-    timerProgressBar: true,
-    showConfirmButton: false,
-    showClass: {
-      popup: "animate__animated animate__zoomIn",
-    },
-    hideClass: {
-      popup: "animate__animated animate__zoomOut",
-    },
-  });
+      Swal.fire({
+        icon: "success",
+        title: "🎉 Registration Successful!",
+        text: "User has been registered successfully.",
+        background: "#0f172a",
+        color: "#ffffff",
+        iconColor: "#22c55e",
+        timer: 2500,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        showClass: {
+          popup: "animate__animated animate__zoomIn",
+        },
+        hideClass: {
+          popup: "animate__animated animate__zoomOut",
+        },
+      });
 
       setFormData({
         name: "",
@@ -58,29 +88,19 @@ export default function Register() {
         mobile: "",
         collegeOrCompany: "",
         profession: "",
+        interestedCourses: [],
       });
+      setShowCourses(false);
     } catch (error) {
-    Swal.fire({
-      icon: "error",
-      title: "❌ Registration Failed",
-      text: error.response?.data?.message || "Something went wrong.",
-      background: "#0f172a",
-      color: "#ffffff",
-      iconColor: "#ef4444",
-      confirmButtonColor: "#dc2626",
-    });
-/*     Swal.fire({
-      toast: true,
-      position: "top-end",
-      icon: "error",
-      title: "❌ Registration Failed",
-      text: error.response?.data?.message || "Please try again.",
-      showConfirmButton: false,
-      timer: 4000,
-      timerProgressBar: true,
-      background: "#dc2626",
-      color: "#ffffff",
-    }); */
+      Swal.fire({
+        icon: "error",
+        title: "❌ Registration Failed",
+        text: error.response?.data?.message || "Something went wrong.",
+        background: "#0f172a",
+        color: "#ffffff",
+        iconColor: "#ef4444",
+        confirmButtonColor: "#dc2626",
+      });
     }
   };
 
@@ -209,6 +229,44 @@ export default function Register() {
                     onChange={handleChange}
                     className="w-full pl-12 p-3 rounded-xl bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   />
+                </div>
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-white mb-2">
+                  Interested Courses
+                </label>
+
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setShowCourses(!showCourses)}
+                    className="w-full bg-white p-3 rounded-xl text-left border border-gray-200"
+                  >
+                    {formData.interestedCourses.length > 0
+                      ? formData.interestedCourses.join(", ")
+                      : "Select one or more courses"}
+                  </button>
+
+                  {showCourses && (
+                    <div className="absolute z-50 mt-2 w-full bg-white rounded-xl shadow-lg border max-h-60 overflow-y-auto scrollbar-thin">
+                      {courses.map((course) => (
+                        <label
+                          key={course}
+                          className="flex items-center gap-3 p-3 hover:bg-gray-100 cursor-pointer"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={formData.interestedCourses.includes(
+                              course,
+                            )}
+                            onChange={() => handleCourseChange(course)}
+                          />
+                          {course}
+                        </label>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

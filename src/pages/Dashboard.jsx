@@ -2,12 +2,21 @@ import naresshphoto from "/narresh-photo.jpg";
 import "./Dashboard.css";
 import { ShoppingCart, Smartphone, Printer, Database } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Download, X } from "lucide-react";
+import reactJsImage from "../assets/ReactJS.jpeg";
+import nestJsImage from "../assets/NestJS.jpeg";
+import databasesImage from "../assets/Databases.png";
+import cloudToolsImage from "../assets/CloudTools.png";
+import javaSpringBootImage from "../assets/JavaSpringBoot.png";
 export default function Dashboard() {
   const [experience, setExperience] = useState(0);
   const [industryExp, setIndustryExp] = useState(0);
   const [trainingExp, setTrainingExp] = useState(0);
   const [technologiesExp, setTechnologiesExp] = useState(0);
   const [studentstrainedExp, setStudentstrainedExp] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageName, setSelectedImageName] = useState("");
   const projects = [
     {
       title: "Bluetooth Thermal Receipt Printing",
@@ -76,6 +85,16 @@ export default function Dashboard() {
 
     return () => clearInterval(timer);
   }, []);
+
+ const downloadImage = () => {
+   const link = document.createElement("a");
+   link.href = selectedImage;
+   link.download = selectedImageName;
+   document.body.appendChild(link);
+   link.click();
+   document.body.removeChild(link);
+ };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-blue-900 to-cyan-900 p-6">
       <div className="max-w-7xl mx-auto">
@@ -165,36 +184,147 @@ export default function Dashboard() {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition">
+            {/* Card */}
+            <div
+              onClick={() => {
+                setSelectedImage(reactJsImage);
+                setSelectedImageName("ReactJS-Roadmap.jpg");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
               <h3 className="text-xl font-bold mb-3">Frontend</h3>
               <p>ReactJS</p>
               <p>Tailwind CSS</p>
               <p>Redux Toolkit</p>
               <p>JavaScript ES6+</p>
+              <div className="mt-4 text-sm font-medium text-cyan-100">
+                Modern UI Development 🚀
+              </div>
             </div>
 
-            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition">
+            {/* Popup */}
+            {showPopup && selectedImage && (
+              <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50">
+                <div className="relative bg-white p-4 rounded-xl max-w-4xl">
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setShowPopup(false)}
+                    className="absolute top-3 right-3 bg-red-500 text-white p-2 rounded-full"
+                  >
+                    <X size={20} />
+                  </button>
+
+                  {/* Download Button */}
+                  <button
+                    onClick={downloadImage}
+                    className="absolute top-3 left-3 bg-green-500 text-white p-2 rounded-full"
+                  >
+                    <Download size={20} />
+                  </button>
+
+                  {/* Image */}
+                  <img
+                    src={selectedImage}
+                    alt="Roadmap"
+                    className="max-h-[80vh] rounded-lg"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div
+              onClick={() => {
+                setSelectedImage(nestJsImage);
+                setSelectedImageName("NestJS-Roadmap.jpg");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
               <h3 className="text-xl font-bold mb-3">Backend</h3>
+              <p>NestJS</p>
               <p>NodeJS</p>
               <p>ExpressJS</p>
-              <p>NestJS</p>
               <p>REST APIs</p>
+              <div className="mt-4 text-sm font-medium text-green-100">
+                Scalable API Development ⚡
+              </div>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition">
+            <div
+              onClick={() => {
+                setSelectedImage(databasesImage);
+                setSelectedImageName("Databases-Roadmap.png");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
               <h3 className="text-xl font-bold mb-3">Database</h3>
               <p>PostgreSQL</p>
               <p>MongoDB</p>
               <p>MySQL</p>
               <p>Neon DB</p>
+              <div className="mt-4 text-sm font-medium text-orange-100">
+                Data Modeling & Management 🗄️
+              </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition">
+            <div
+              onClick={() => {
+                setSelectedImage(cloudToolsImage);
+                setSelectedImageName("Cloud-Tools-Roadmap.png");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-purple-500 to-pink-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
               <h3 className="text-xl font-bold mb-3">Cloud & Tools</h3>
               <p>GitHub</p>
               <p>Vercel</p>
               <p>Render</p>
               <p>Docker</p>
+              <div className="mt-4 text-sm font-medium text-pink-100">
+                Deployment & DevOps Essentials ☁️
+              </div>
+            </div>
+
+            <div
+              onClick={() => {
+                setSelectedImage(javaSpringBootImage);
+                setSelectedImageName("Java-SpringBoot-Roadmap.png");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-green-600 to-lime-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
+              <h3 className="text-xl font-bold mb-3">Java Spring Boot</h3>
+
+              <p>Spring Boot</p>
+              <p>Spring Security</p>
+              <p>Spring Data JPA</p>
+              <p>REST APIs</p>
+
+              <div className="mt-4 text-sm font-medium text-green-100">
+                Enterprise Application Development 🚀
+              </div>
             </div>
           </div>
         </div>

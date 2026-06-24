@@ -17,19 +17,31 @@ export default function Usersx() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
-const getUsers = async () => {
-  try {
-    setLoading(true);
+  const courses = [
+    "ReactJS",
+    "NestJS",
+    "Java Spring Boot",
+    "NodeJS",
+    "PostgreSQL",
+    "MongoDB",
+    "Python",
+    "Django",
+    "Angular",
+    "AWS",
+  ];
+  const getUsers = async () => {
+    try {
+      setLoading(true);
 
-    const response = await API.get("/users");
+      const response = await API.get("/users");
 
-    setUsers(response.data.data);
-  } catch (error) {
-    console.error(error);
-  } finally {
-    setLoading(false);
-  }
-};
+      setUsers(response.data.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     getUsers();
@@ -83,45 +95,76 @@ const getUsers = async () => {
       color: "#ffffff",
 
       html: `
-    <div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-direction:column;gap:12px">
 
-      <input
-        id="name"
-        class="swal2-input"
-        placeholder="Full Name"
-        value="${user.name || ""}"
-      />
+  <input
+    id="name"
+    class="swal2-input"
+    placeholder="Full Name"
+    value="${user.name || ""}"
+  />
 
-      <input
-        id="email"
-        class="swal2-input"
-        placeholder="Email Address"
-        value="${user.email || ""}"
-      />
+  <input
+    id="email"
+    class="swal2-input"
+    placeholder="Email Address"
+    value="${user.email || ""}"
+  />
 
-      <input
-        id="mobile"
-        class="swal2-input"
-        placeholder="Mobile Number"
-        value="${user.mobile || ""}"
-      />
+  <input
+    id="mobile"
+    class="swal2-input"
+    placeholder="Mobile Number"
+    value="${user.mobile || ""}"
+  />
 
-      <input
-        id="collegeOrCompany"
-        class="swal2-input"
-        placeholder="College / Company"
-        value="${user.college_or_company || ""}"
-      />
+  <input
+    id="collegeOrCompany"
+    class="swal2-input"
+    placeholder="College / Company"
+    value="${user.college_or_company || ""}"
+  />
 
-      <input
-        id="profession"
-        class="swal2-input"
-        placeholder="Profession"
-        value="${user.profession || ""}"
-      />
+  <input
+    id="profession"
+    class="swal2-input"
+    placeholder="Profession"
+    value="${user.profession || ""}"
+  />
 
-    </div>
-  `,
+  <div style="text-align:left;padding:10px;color:white">
+    <strong>Interested Courses</strong>
+  </div>
+
+  <div
+    style="
+      max-height:200px;
+      overflow-y:auto;
+      text-align:left;
+      border:1px solid #334155;
+      border-radius:10px;
+      padding:10px;
+    "
+  >
+    ${courses
+      .map(
+        (course) => `
+      <label style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <input
+          type="checkbox"
+          class="course-checkbox"
+          value="${course}"
+          ${user.interested_courses?.includes(course) ? "checked" : ""}
+        />
+        ${course}
+      </label>
+    `,
+      )
+      .join("")}
+  </div>
+
+</div>
+`,
 
       showCancelButton: true,
       confirmButtonText: "Update User",
@@ -141,6 +184,10 @@ const getUsers = async () => {
           .value.trim();
         const profession = document.getElementById("profession").value.trim();
 
+        const interestedCourses = [
+          ...document.querySelectorAll(".course-checkbox:checked"),
+        ].map((checkbox) => checkbox.value);
+
         if (!name || !email || !mobile || !collegeOrCompany || !profession) {
           Swal.showValidationMessage("Please fill all required fields");
           return false;
@@ -152,6 +199,7 @@ const getUsers = async () => {
           mobile,
           collegeOrCompany,
           profession,
+          interestedCourses,
         };
       },
     });
@@ -199,7 +247,12 @@ const getUsers = async () => {
   };
 
   const filteredUsers = users.filter((user) =>
-    `${user.name} ${user.email} ${user.mobile} ${user.college_or_company} ${user.profession}`
+    `${user.name}
+   ${user.email}
+   ${user.mobile}
+   ${user.college_or_company}
+   ${user.profession}
+   ${user.interested_courses?.join(" ")}`
       .toLowerCase()
       .includes(search.toLowerCase()),
   );
@@ -207,7 +260,7 @@ const getUsers = async () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-blue-900 to-cyan-900 p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
-            {loading && (
+        {loading && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center z-50">
             <div className="w-16 h-16 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
 
@@ -242,7 +295,7 @@ const getUsers = async () => {
             </div>
           </div>
         )} */}
-       {/*  {loading && (
+        {/*  {loading && (
           <div className="fixed inset-0 bg-gradient-to-br from-indigo-950 via-blue-900 to-cyan-900 flex items-center justify-center z-50">
             <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 flex flex-col items-center shadow-2xl">
               <LoaderCircle size={70} className="animate-spin text-cyan-300" />
@@ -313,6 +366,7 @@ const getUsers = async () => {
                   <th className="p-4 text-left">Mobile</th>
                   <th className="p-4 text-left">Company</th>
                   <th className="p-4 text-left">Profession</th>
+                  <th className="p-4 text-left">Interested Courses</th>
                   <th className="p-4 text-center">Actions</th>
                 </tr>
               </thead>
@@ -358,6 +412,19 @@ const getUsers = async () => {
                     </td>
 
                     <td className="p-4">
+                      <div className="flex flex-wrap gap-2">
+                        {user.interested_courses?.map((course, index) => (
+                          <span
+                            key={index}
+                            className="bg-cyan-500/20 text-cyan-200 px-2 py-1 rounded-lg text-xs"
+                          >
+                            {course}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+
+                    <td className="p-4">
                       <div className="flex justify-center gap-3">
                         <button
                           onClick={() => editUser(user)}
@@ -381,7 +448,7 @@ const getUsers = async () => {
 
                 {filteredUsers.length === 0 && (
                   <tr>
-                    <td colSpan="7" className="text-center text-white py-10">
+                    <td colSpan="8" className="text-center text-white py-10">
                       No users found
                     </td>
                   </tr>
