@@ -10,12 +10,9 @@ import {
   Briefcase,
   UserPlus,
 } from "lucide-react";
-import { BookOpen } from "lucide-react";
 import "animate.css";
-import { LoaderCircle } from "lucide-react";
 
 export default function Register() {
-  const [loading, setLoading] = useState(false);
   const [showCourses, setShowCourses] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -66,7 +63,6 @@ export default function Register() {
       return;
     }
     try {
-      setLoading(true);
       await API.post("/users", formData);
       Swal.fire({
         icon: "success",
@@ -105,23 +101,12 @@ export default function Register() {
         iconColor: "#ef4444",
         confirmButtonColor: "#dc2626",
       });
-    } finally {
-      setLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-blue-900 to-cyan-900 flex items-center justify-center p-4">
       <div className="w-full max-w-5xl">
-        {loading && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center z-50">
-            <div className="w-16 h-16 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
-
-            <p className="mt-4 text-white text-lg font-semibold">
-              Registering User...
-            </p>
-          </div>
-        )}
         <div className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-8 text-white">
@@ -192,30 +177,12 @@ export default function Register() {
                     size={20}
                   />
 
-                  {/* <input
-                    type="text"
-                    name="mobile"
-                    placeholder="Enter Mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    className="w-full pl-12 p-3 rounded-xl bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  /> */}
                   <input
                     type="text"
                     name="mobile"
                     placeholder="Enter Mobile"
                     value={formData.mobile}
-                    onChange={(e) => {
-                      const value = e.target.value
-                        .replace(/\D/g, "")
-                        .slice(0, 10);
-
-                      setFormData({
-                        ...formData,
-                        mobile: value,
-                      });
-                    }}
-                    maxLength={10}
+                    onChange={handleChange}
                     className="w-full pl-12 p-3 rounded-xl bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   />
                 </div>
@@ -270,36 +237,89 @@ export default function Register() {
                   Interested Courses
                 </label>
 
-                <button
-                  type="button"
-                  onClick={() => setShowCourses(true)}
-                  className="w-full bg-white p-3 rounded-xl text-left border border-gray-200"
-                >
-                  {formData.interestedCourses.length > 0
-                    ? `${formData.interestedCourses.length} course(s) selected`
-                    : "Select one or more courses"}
-                </button>
+                {/*    <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setShowCourses(!showCourses)}
+                    className="w-full bg-white p-3 rounded-xl text-left border border-gray-200"
+                  >
+                    {formData.interestedCourses.length > 0
+                      ? formData.interestedCourses.join(", ")
+                      : "Select one or more courses"}
+                  </button>
 
-                {formData.interestedCourses.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {formData.interestedCourses.map((course) => (
-                      <div
-                        key={course}
-                        className="flex items-center gap-2 bg-cyan-500 text-white px-3 py-1.5 rounded-full text-sm shadow-md"
-                      >
-                        <span>{course}</span>
-
-                        <button
-                          type="button"
-                          onClick={() => handleCourseChange(course)}
-                          className="w-5 h-5 flex items-center justify-center rounded-full bg-white/20 hover:bg-red-500 transition"
+                  {showCourses && (
+                    <div className="absolute z-50 mt-2  w-full bg-white rounded-xl shadow-lg border max-h-60 overflow-y-auto scrollbar-thin">
+                      {courses.map((course) => (
+                        <label
+                          key={course}
+                          className="flex items-center gap-3 p-3 hover:bg-gray-100 cursor-pointer"
                         >
-                          ✕
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                          <input
+                            type="checkbox"
+                            checked={formData.interestedCourses.includes(
+                              course,
+                            )}
+                            onChange={() => handleCourseChange(course)}
+                          />
+                          {course}
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                </div> */}
+                <div className="md:col-span-2 relative">
+                  <button
+                    type="button"
+                    onClick={() => setShowCourses(!showCourses)}
+                    className="w-full bg-white px-4 py-3 rounded-xl text-left border border-gray-300 shadow-sm hover:border-blue-400 focus:ring-2 focus:ring-blue-500 transition-all"
+                  >
+                    {formData.interestedCourses.length > 0
+                      ? formData.interestedCourses.join(", ")
+                      : "Select one or more courses"}
+                  </button>
+
+                  {showCourses && (
+                    <div
+                      className="
+        absolute z-50 mt-2 w-full
+        bg-white rounded-xl border border-gray-200
+        shadow-xl
+        max-h-64 overflow-y-auto
+        scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-gray-100
+      "
+                    >
+                      {courses.map((course) => (
+                        <label
+                          key={course}
+                          className="
+            flex items-center gap-3 px-4 py-3
+            hover:bg-blue-50
+            cursor-pointer
+            transition-colors
+            border-b border-gray-100 last:border-b-0
+          "
+                        >
+                          <input
+                            type="checkbox"
+                            checked={formData.interestedCourses.includes(
+                              course,
+                            )}
+                            onChange={() => handleCourseChange(course)}
+                            className="
+              h-4 w-4
+              text-blue-600
+              rounded
+              border-gray-300
+              focus:ring-blue-500
+            "
+                          />
+                          <span className="text-gray-700">{course}</span>
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -307,117 +327,14 @@ export default function Register() {
             <div className="mt-8">
               <button
                 type="submit"
-                disabled={loading}
-                className={`w-full text-white font-bold py-4 rounded-xl shadow-lg transition duration-300 flex items-center justify-center gap-3
-    ${
-      loading
-        ? "bg-gray-500 cursor-not-allowed"
-        : "bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-[1.02] hover:shadow-cyan-500/40"
-    }`}
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-4 rounded-xl shadow-lg hover:scale-[1.02] hover:shadow-cyan-500/40 transition duration-300"
               >
-                {loading ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Registering...
-                  </>
-                ) : (
-                  "Register User"
-                )}
+                Register User
               </button>
             </div>
           </form>
         </div>
       </div>
-
-      {showCourses && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center backdrop-blur-sm animate__animated animate__zoomIn">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4">
-            {/* Header */}
-            <div className="flex items-center justify-between p-5 border-b">
-              <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
-                <BookOpen size={20} />
-                Select Courses
-              </h3>
-
-              <button
-                onClick={() => setShowCourses(false)}
-                className="text-gray-500 hover:text-red-500 text-2xl"
-              >
-                ×
-              </button>
-            </div>
-
-            {/* Body */}
-            <div className="p-5 max-h-80 overflow-y-auto">
-              {/* <button
-                type="button"
-                onClick={() =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    interestedCourses: [...courses],
-                  }))
-                }
-                className="mb-3 text-cyan-600 font-medium"
-              >
-                Select All Courses
-              </button> */}
-              <button
-                type="button"
-                onClick={() =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    interestedCourses:
-                      prev.interestedCourses.length === courses.length
-                        ? []
-                        : [...courses],
-                  }))
-                }
-                className="mb-3 text-cyan-600 font-medium"
-              >
-                {formData.interestedCourses.length === courses.length
-                  ? "Deselect All"
-                  : "Select All"}
-              </button>
-              <div className="space-y-3">
-                {courses.map((course) => (
-                  <label
-                    key={course}
-                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 cursor-pointer"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={formData.interestedCourses.includes(course)}
-                      onChange={() => handleCourseChange(course)}
-                      className="w-5 h-5 accent-cyan-600"
-                    />
-
-                    <span className="text-gray-700">{course}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="p-5 border-t flex justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setShowCourses(false)}
-                className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300"
-              >
-                Cancel
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setShowCourses(false)}
-                className="px-4 py-2 rounded-lg bg-cyan-600 text-white hover:bg-cyan-700"
-              >
-                Done
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
