@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Usersx from "./pages/Usersx";
 
 import { LayoutDashboard, UserPlus, Users, Menu, X } from "lucide-react";
-
+import { Navigate } from "react-router-dom";
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -102,6 +102,8 @@ export default function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/users" element={<Usersx />} />
+        <Route path="/index.html" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
