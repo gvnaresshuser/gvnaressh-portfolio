@@ -122,9 +122,14 @@ export default function Dashboard() {
                     GV Naressh
                   </h1>
 
-                  <h1 className="text-2xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-gradient">
+                  {/* <h1 className="text-2xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-gradient">
                     📞 9949570732
-                  </h1>
+                  </h1> */}
+                  <a href="tel:9949570732">
+                    <h1 className="text-2xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-gradient cursor-pointer">
+                      📞 9949570732
+                    </h1>
+                  </a>
                 </div>
 
                 <p className="text-xl text-cyan-300 font-semibold">
