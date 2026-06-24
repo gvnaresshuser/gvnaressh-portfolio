@@ -7,7 +7,7 @@ import reactJsImage from "../assets/ReactJS.jpeg";
 import nestJsImage from "../assets/NestJS.jpeg";
 import databasesImage from "../assets/Databases.png";
 import cloudToolsImage from "../assets/CloudTools.png";
-import javaSpringBootImage from "../assets/JavaSpringBoot.png";
+import javaSpringBootImage from "../assets/JavaSpringboot.png";
 export default function Dashboard() {
   const [experience, setExperience] = useState(0);
   const [industryExp, setIndustryExp] = useState(0);
@@ -86,14 +86,14 @@ export default function Dashboard() {
     return () => clearInterval(timer);
   }, []);
 
- const downloadImage = () => {
-   const link = document.createElement("a");
-   link.href = selectedImage;
-   link.download = selectedImageName;
-   document.body.appendChild(link);
-   link.click();
-   document.body.removeChild(link);
- };
+  const downloadImage = () => {
+    const link = document.createElement("a");
+    link.href = selectedImage;
+    link.download = selectedImageName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-blue-900 to-cyan-900 p-6">
