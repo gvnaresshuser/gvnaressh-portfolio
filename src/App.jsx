@@ -45,10 +45,10 @@ export default function App() {
                 Register
               </NavLink>
 
-              <NavLink to="/users" className={navLinkClasses}>
+              {/* <NavLink to="/users" className={navLinkClasses}>
                 <Users size={18} />
                 Users
-              </NavLink>
+              </NavLink> */}
             </div>
 
             {/* Mobile Toggle */}

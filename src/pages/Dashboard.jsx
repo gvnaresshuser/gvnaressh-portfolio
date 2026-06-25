@@ -2,12 +2,14 @@ import naresshphoto from "/narresh-photo.jpg";
 import "./Dashboard.css";
 import { ShoppingCart, Smartphone, Printer, Database } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Download, X } from "lucide-react";
+import { Download, X, User, Rocket } from "lucide-react";
 import reactJsImage from "../assets/ReactJS.jpeg";
 import nestJsImage from "../assets/NestJS.jpeg";
 import databasesImage from "../assets/Databases.png";
 import cloudToolsImage from "../assets/CloudTools.png";
 import javaSpringBootImage from "../assets/JavaSpringboot.png";
+import aboutMeImage from "../assets/About-GV-Naressh.png";
+import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
   const [experience, setExperience] = useState(0);
   const [industryExp, setIndustryExp] = useState(0);
@@ -17,7 +19,16 @@ export default function Dashboard() {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedImageName, setSelectedImageName] = useState("");
+  const navigate = useNavigate();
+  //ABOUT ME
+  //https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing
   const projects = [
+    {
+      title: "About Me",
+      icon: User, // Import User from lucide-react
+      link: "https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing",
+      tech: "Professional Profile",
+    },
     {
       title: "Bluetooth Thermal Receipt Printing",
       icon: Printer,
@@ -40,6 +51,12 @@ export default function Dashboard() {
     },
     {
       title: "Django MongoDB E-Commerce",
+      icon: Database,
+      link: "https://drive.google.com/file/d/1aKpQUTX7buh0xG4VeB7YbDqwhO60essJ/view",
+      tech: "Django • Python • MongoDB",
+    },
+    {
+      title: "xxxx",
       icon: Database,
       link: "https://drive.google.com/file/d/1aKpQUTX7buh0xG4VeB7YbDqwhO60essJ/view",
       tech: "Django • Python • MongoDB",
@@ -189,6 +206,31 @@ export default function Dashboard() {
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* About Me Card */}
+            <div
+              onClick={() => {
+                setSelectedImage(aboutMeImage); // Your About Me image
+                setSelectedImageName("About-GV-Naressh.jpg");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-amber-800 via-amber-700 to-yellow-700 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition duration-300 cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
+              <h3 className="text-xl font-bold mb-3">About Me</h3>
+
+              <p>👨‍🏫 25+ Years in Software Industry</p>
+              <p>🎓 10+ Years of Training Exp.</p>
+              <p>⚛️ ReactJS & PERN Stack Trainer</p>
+              <p>☕ Node.js • PostgreSQL</p>
+
+              <div className="mt-4 text-sm font-medium text-pink-100">
+                Passionate Trainer & Full Stack Developer 🌟
+              </div>
+            </div>
+
             {/* Card */}
             <div
               onClick={() => {
@@ -248,7 +290,7 @@ export default function Dashboard() {
                 setSelectedImageName("NestJS-Roadmap.jpg");
                 setShowPopup(true);
               }}
-              className="relative bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
+              className="relative bg-gradient-to-r from-yellow-500 to-amber-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
             >
               <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
                 Click for Details
@@ -339,6 +381,29 @@ export default function Dashboard() {
         </h2>
         <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => {
+            // Show Register Card for xxxx
+            if (project.title === "xxxx") {
+              return (
+                <div
+                  key={index}
+                  onClick={() => navigate("/register")}
+                  className="group cursor-pointer flex items-center justify-center"
+                >
+                  <div className="flex items-center gap-3 bg-gradient-to-r from-pink-600 via-red-500 to-orange-500 text-white px-6 py-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 animate-bounce">
+                    <Rocket
+                      size={32}
+                      className="group-hover:rotate-45 transition duration-300"
+                    />
+
+                    <div>
+                      <h3 className="font-bold text-lg">Register Now</h3>
+                      <p className="text-xs">🎉 Free Demo Class</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             const Icon = project.icon;
 
             return (
@@ -372,7 +437,11 @@ export default function Dashboard() {
                 </div>
               </a>
             );
+
+            
           })}
+
+         
         </div>
 
         {/* Footer */}
@@ -383,6 +452,8 @@ export default function Dashboard() {
           </p>
         </div>
       </div>
+
+      
     </div>
   );
 }
