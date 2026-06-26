@@ -1,4 +1,4 @@
-import naresshphoto from "/narresh-photo.jpg";
+//import naresshphoto from "/narresh-photo.jpg";
 import "./Dashboard.css";
 import { ShoppingCart, Smartphone, Printer, Database } from "lucide-react";
 import { useEffect, useState } from "react";
