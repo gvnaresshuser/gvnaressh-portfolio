@@ -34,6 +34,7 @@ export default function Usersx() {
       setLoading(true);
 
       const response = await API.get("/users");
+      console.log(response.data.data);
 
       setUsers(response.data.data);
     } catch (error) {

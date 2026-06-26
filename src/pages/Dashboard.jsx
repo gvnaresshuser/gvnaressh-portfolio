@@ -10,6 +10,15 @@ import cloudToolsImage from "../assets/CloudTools.png";
 import javaSpringBootImage from "../assets/JavaSpringboot.png";
 import aboutMeImage from "../assets/About-GV-Naressh.png";
 import { useNavigate } from "react-router-dom";
+
+import photo1 from "/naressh1.jpg";
+import photo2 from "/naressh2.jpeg";
+import photo3 from "/naressh3.png";
+import photo4 from "/naressh4.jpeg";
+import photo5 from "/naressh5.jpeg";
+import photo6 from "/naressh6.jpeg";
+import photo7 from "/naressh7.jpeg";
+
 export default function Dashboard() {
   const [experience, setExperience] = useState(0);
   const [industryExp, setIndustryExp] = useState(0);
@@ -20,6 +29,9 @@ export default function Dashboard() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedImageName, setSelectedImageName] = useState("");
   const navigate = useNavigate();
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [flip, setFlip] = useState(false);
+  const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7];
   //ABOUT ME
   //https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing
   const projects = [
@@ -62,6 +74,24 @@ export default function Dashboard() {
       tech: "Django • Python • MongoDB",
     },
   ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Start flip
+      setFlip(true);
+
+      // Change image at the middle of flip
+      setTimeout(() => {
+        setCurrentPhoto((prev) => (prev + 1) % photos.length);
+      }, 300);
+
+      // Complete flip
+      setTimeout(() => {
+        setFlip(false);
+      }, 600);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
   useEffect(() => {
     let industry = 0;
     let training = 0;
@@ -120,10 +150,25 @@ export default function Dashboard() {
           <div className="p-10 md:p-14">
             <div className="flex flex-col md:flex-row items-center gap-10">
               {/* Profile Image */}
-              <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+              {/*   <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
                 <img
                   //src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400"
                   src={naresshphoto}
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div> */}
+              <div
+                className={`w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl transition-transform duration-700 ${
+                  flip ? "rotate-y-180" : ""
+                }`}
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: flip ? "rotateY(180deg)" : "rotateY(0deg)",
+                }}
+              >
+                <img
+                  src={photos[currentPhoto]}
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
@@ -437,11 +482,7 @@ export default function Dashboard() {
                 </div>
               </a>
             );
-
-            
           })}
-
-         
         </div>
 
         {/* Footer */}
@@ -452,8 +493,6 @@ export default function Dashboard() {
           </p>
         </div>
       </div>
-
-      
     </div>
   );
 }
