@@ -432,7 +432,7 @@ export default function Dashboard() {
                 <div
                   key={index}
                   onClick={() => navigate("/register")}
-                  className="group cursor-pointer flex items-center justify-center"
+                  className="group cursor-pointer flex items-center justify-center mb-[-20px]"
                 >
                   <div className="flex items-center gap-3 bg-gradient-to-r from-pink-600 via-red-500 to-orange-500 text-white px-6 py-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 animate-bounce">
                     <Rocket

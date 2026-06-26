@@ -52,7 +52,7 @@ export default function App() {
                 GV Naressh
               </h1>
 
-              <p className="hidden sm:block text-xs text-cyan-200">
+              <p className="sm:block text-xs text-cyan-200">
                 React Full Stack Trainer
               </p>
             </div>
