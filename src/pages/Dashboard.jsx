@@ -9,6 +9,9 @@ import databasesImage from "../assets/Databases.png";
 import cloudToolsImage from "../assets/CloudTools.png";
 import javaSpringBootImage from "../assets/JavaSpringboot.png";
 import aboutMeImage from "../assets/About-GV-Naressh.png";
+import angular22Image from "../assets/Angular22.png";
+import pythonImage from "../assets/Python.png";
+
 import { useNavigate } from "react-router-dom";
 
 import photo1 from "/naressh1.jpg";
@@ -416,6 +419,56 @@ export default function Dashboard() {
 
               <div className="mt-4 text-sm font-medium text-green-100">
                 Enterprise Application Development 🚀
+              </div>
+            </div>
+
+            {/* ANGULAR VERSION 22 */}
+            <div
+              onClick={() => {
+                setSelectedImage(angular22Image);
+                setSelectedImageName("Angular-22-Roadmap.png");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-red-600 to-pink-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
+              <h3 className="text-xl font-bold mb-3">Angular 22</h3>
+
+              <p>Signals & Effects</p>
+              <p>Standalone Architecture</p>
+              <p>Reactive Forms & RxJS</p>
+              <p>REST APIs & Deployment</p>
+
+              <div className="mt-4 text-sm font-medium text-red-100">
+                Build Enterprise Angular Applications 🚀
+              </div>
+            </div>
+
+            {/* PYTHON */}
+            <div
+              onClick={() => {
+                setSelectedImage(pythonImage);
+                setSelectedImageName("Python-Django-Roadmap.png");
+                setShowPopup(true);
+              }}
+              className="relative bg-gradient-to-r from-indigo-700 via-blue-600 to-cyan-500 text-white p-6 rounded-2xl shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+            >
+              <span className="absolute top-3 right-3 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold animate-pulse">
+                Click for Details
+              </span>
+
+              <h3 className="text-xl font-bold mb-3">Python + Django</h3>
+
+              <p>Python Programming</p>
+              <p>Django REST APIs</p>
+              <p>MongoDB + JWT</p>
+              <p>React + Razorpay</p>
+
+              <div className="mt-4 text-sm font-medium text-cyan-100">
+                Build Production-Ready E-Commerce Applications 🚀
               </div>
             </div>
           </div>
