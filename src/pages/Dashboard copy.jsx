@@ -220,7 +220,7 @@ export default function Dashboard() {
                   Tailwind CSS and modern full-stack application development.
                 </p>
 
-                {/* <div
+                <div
                   onClick={() => navigate("/register")}
                   className="group cursor-pointer flex items-center justify-end mb-[-20px]"
                 >
@@ -235,50 +235,6 @@ export default function Dashboard() {
                       <p className="text-xs">🎉 Free Demo Class</p>
                     </div>
                   </div>
-                </div>
- */}
-                <div
-                  onClick={() => navigate("/register")}
-                  className="mt-8 flex justify-center md:justify-end"
-                >
-                  <button
-                    className="
-      group
-      relative
-      overflow-hidden
-      flex items-center gap-3
-      rounded-full
-      bg-gradient-to-r
-      from-fuchsia-600
-      via-pink-600
-      to-orange-500
-      px-6 py-3
-      md:px-8 md:py-4
-      text-white
-      shadow-2xl
-      hover:scale-105
-      transition-all
-      duration-300
-       transition-all duration-300 animate-bounce
-    "
-                  >
-                    {/* Shine Effect */}
-                    <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-white/20 skew-x-12 transition-transform duration-700"></span>
-
-                    <Rocket
-                      size={22}
-                      className="relative group-hover:rotate-45 transition duration-300"
-                    />
-
-                    <div className="relative text-left">
-                      <div className="font-bold text-sm md:text-lg">
-                        Register Now
-                      </div>
-                      <div className="text-[11px] md:text-xs opacity-90">
-                        🎉 Free Demo Class
-                      </div>
-                    </div>
-                  </button>
                 </div>
               </div>
             </div>
@@ -554,8 +510,24 @@ export default function Dashboard() {
           {projects.map((project, index) => {
             // Show Register Card for xxxx
             if (project.title === "xxxx") {
-              return (          
-                null
+              return (
+                <div
+                  key={index}
+                  onClick={() => navigate("/register")}
+                  className="group cursor-pointer flex items-center justify-center mb-[-20px]"
+                >
+                  <div className="flex items-center gap-3 bg-gradient-to-r from-pink-600 via-red-500 to-orange-500 text-white px-6 py-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 animate-bounce">
+                    <Rocket
+                      size={32}
+                      className="group-hover:rotate-45 transition duration-300"
+                    />
+
+                    <div>
+                      <h3 className="font-bold text-lg">Register Now</h3>
+                      <p className="text-xs">🎉 Free Demo Class</p>
+                    </div>
+                  </div>
+                </div>
               );
             }
 
