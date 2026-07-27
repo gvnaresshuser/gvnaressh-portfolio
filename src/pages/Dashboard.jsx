@@ -6,6 +6,7 @@ import {
   Printer,
   Database,
   Camera,
+  ShieldCheck,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Download, X, User, Rocket } from "lucide-react";
@@ -49,6 +50,12 @@ export default function Dashboard() {
       icon: User, // Import User from lucide-react
       link: "https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing",
       tech: "Professional Profile",
+    },
+    {
+      title: "JWT Authentication with Access & Refresh Tokens",
+      icon: ShieldCheck,
+      link: "https://drive.google.com/file/d/1Mfnfp7xVoBUV49W3i4zwuj4PIs-kOvuK/view?usp=sharing",
+      tech: "React.js • Node.js • Express.js • JWT • Access Token • Refresh Token • HTTP-Only Cookies • Axios Interceptors",
     },
     {
       title: "FindFace AI - Face Recognition System",
