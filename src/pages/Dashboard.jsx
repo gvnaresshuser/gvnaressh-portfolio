@@ -7,6 +7,7 @@ import {
   Database,
   Camera,
   ShieldCheck,
+  KeyRound,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Download, X, User, Rocket } from "lucide-react";
@@ -52,8 +53,14 @@ export default function Dashboard() {
       tech: "Professional Profile",
     },
     {
-      title: "JWT Authentication with Access & Refresh Tokens",
+      title: "ReactShield Lab – Interactive React Security Training",
       icon: ShieldCheck,
+      link: "https://drive.google.com/file/d/1qSmbkGXdx0XbzTbQjZhxQIMLkVj6v-Cl/view?usp=sharing",
+      tech: "React.js • Node.js • Express.js • PostgreSQL • JWT Authentication • XSS • Safe URL Validation • CSRF • SQL Injection Prevention • Content Security Policy (CSP) • Helmet • File Upload Security • Rate Limiting & Brute Force Protection • Logging & Monitoring (Sentry & Winston)",
+    },
+    {
+      title: "JWT Authentication with Access & Refresh Tokens",
+      icon: KeyRound,
       link: "https://drive.google.com/file/d/1Mfnfp7xVoBUV49W3i4zwuj4PIs-kOvuK/view?usp=sharing",
       tech: "React.js • Node.js • Express.js • JWT • Access Token • Refresh Token • HTTP-Only Cookies • Axios Interceptors",
     },
