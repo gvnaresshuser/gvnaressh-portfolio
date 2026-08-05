@@ -29,10 +29,9 @@ import photo4 from "/naressh4.jpeg";
 import photo5 from "/naressh5.jpeg";
 import photo6 from "/naressh6.jpeg";
 import photo7 from "/naressh7.jpeg";
-import { PROFILE } from "./config";
 
 export default function Dashboard() {
-  //const [experience, setExperience] = useState(0);
+  const [experience, setExperience] = useState(0);
   const [industryExp, setIndustryExp] = useState(0);
   const [trainingExp, setTrainingExp] = useState(0);
   const [technologiesExp, setTechnologiesExp] = useState(0);
@@ -104,21 +103,7 @@ export default function Dashboard() {
       tech: "Django • Python • MongoDB",
     },
   ];
-  const EXPERIENCE = PROFILE.experience;
-  const TRAINING = PROFILE.training;
-  const TECHNOLOGIES = PROFILE.technologies;
-  const STUDENTS_TRAINED = PROFILE.students;
-
-/*   
-  console.log("EXPERIENCE:", EXPERIENCE);
-  console.log("TRAINING:", TRAINING);
-  console.log("TECHNOLOGIES:", TECHNOLOGIES);
-  console.log("STUDENTS_TRAINED:", STUDENTS_TRAINED); 
-  */
-  console.count("Dashboard Render");
-
   useEffect(() => {
-     console.log("Dashboard Mounted");
     const interval = setInterval(() => {
       // Start flip
       setFlip(true);
@@ -143,36 +128,32 @@ export default function Dashboard() {
     let students = 0;
 
     const timer = setInterval(() => {
-      if (industry < EXPERIENCE) {
+      if (industry < 25) {
         industry++;
         setIndustryExp(industry);
       }
 
-      if (training < TRAINING) {
+      if (training < 15) {
         training++;
         setTrainingExp(training);
       }
 
-      if (technologies < TECHNOLOGIES) {
+      if (technologies < 20) {
         technologies++;
         setTechnologiesExp(technologies);
       }
 
-      if (students < STUDENTS_TRAINED) {
-        //students += Math.ceil(STUDENTS_TRAINED / 100); // Smooth animation
-        const STEP = Math.max(1, Math.ceil(STUDENTS_TRAINED / 20));
-        students += STEP;
-        if (students > STUDENTS_TRAINED) {
-          students = STUDENTS_TRAINED;
-        }
-        setStudentstrainedExp(students);
-      }
+        if (students < 5000) {
+         students += 50; // increase by 50
+         if (students > 5000) students = 5000;
+         setStudentstrainedExp(students);
+       }
 
       if (
-        industry >= EXPERIENCE &&
-        training >= TRAINING &&
-        technologies >= TECHNOLOGIES &&
-        students >= STUDENTS_TRAINED
+        industry >= 25 &&
+        training >= 15 &&
+        technologies >= 20 &&
+        students >= 5000
       ) {
         clearInterval(timer);
       }
@@ -247,11 +228,10 @@ export default function Dashboard() {
                 </p>
 
                 <p className="text-gray-200 mt-5 leading-8 max-w-3xl">
-                  Passionate software professional with {EXPERIENCE}+ years of
-                  industry experience and {TRAINING}+ years of training
-                  experience. Specializing in ReactJS, NodeJS, PostgreSQL,
-                  NestJS, Java Spring Boot, Tailwind CSS, and modern full-stack
-                  application development.
+                  Passionate software professional with 25+ years of industry
+                  experience and 15+ years of training experience. Specializing
+                  in ReactJS, NodeJS, PostgreSQL, NestJS, Java Springboot,
+                  Tailwind CSS and modern full-stack application development.
                 </p>
 
                 {/* <div
@@ -350,9 +330,7 @@ export default function Dashboard() {
             <p className="text-4xl font-bold text-orange-600 mt-2">
               {studentstrainedExp}+
             </p>
-            <p className="text-sm text-gray-500">
-              Corporate / Academic Audiences
-            </p>
+            <p className="text-sm text-gray-500">Learners</p>
           </div>
         </div>
 
@@ -378,8 +356,8 @@ export default function Dashboard() {
 
               <h3 className="text-xl font-bold mb-3">About Me</h3>
 
-              <p>👨‍🏫 {EXPERIENCE}+ Years in Software Industry</p>
-              <p>🎓 {TRAINING}+ Years of Training Experience</p>
+              <p>👨‍🏫 25+ Years in Software Industry</p>
+              <p>🎓 10+ Years of Training Exp.</p>
               <p>⚛️ ReactJS & PERN Stack Trainer</p>
               <p>☕ Node.js • PostgreSQL</p>
 
@@ -590,7 +568,9 @@ export default function Dashboard() {
           {projects.map((project, index) => {
             // Show Register Card for xxxx
             if (project.title === "xxxx") {
-              return null;
+              return (          
+                null
+              );
             }
 
             const Icon = project.icon;
