@@ -629,34 +629,13 @@ export default function Dashboard() {
                 className="group"
               >
                 <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 hover:scale-105 hover:border-cyan-400 transition-all duration-300 shadow-xl">
-                  {/*    <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500">
                       <Icon size={30} className="text-white" />
                     </div>
 
                     <div>
                       <h3 className="text-xl font-bold text-white group-hover:text-cyan-300">
-                        {project.title}
-                      </h3>
-
-                      <p className="text-gray-300 text-sm mt-1">
-                        {project.tech}
-                      </p>
-                    </div>
-                  </div> */}
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500">
-                      <Icon size={30} className="text-white" />
-                    </div>
-
-                    <div className="relative flex-1">
-                      {project.isNew && (
-                        <span className="absolute -top-4 right-0 bg-gradient-to-r from-pink-500 to-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-lg animate-pulse">
-                          NEW
-                        </span>
-                      )}
-
-                      <h3 className="mt-0 text-xl font-bold text-white group-hover:text-cyan-300">
                         {project.title}
                       </h3>
 
