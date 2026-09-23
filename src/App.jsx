@@ -24,15 +24,15 @@ export default function App() {
         : "text-white hover:bg-white/20"
     }`;
 
-    const verifyPassword = () => {
-      if (password === "36953695") {
-        setShowUsers(true);
-        setShowPasswordModal(false);
-        setPassword("");
-      } else {
-        setError("Incorrect Password");
-      }
-    };
+  const verifyPassword = () => {
+    if (password === "36953695") {
+      setShowUsers(true);
+      setShowPasswordModal(false);
+      setPassword("");
+    } else {
+      setError("Incorrect Password");
+    }
+  };
 
   return (
     <BrowserRouter>

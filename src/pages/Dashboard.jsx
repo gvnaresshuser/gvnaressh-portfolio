@@ -8,6 +8,8 @@ import {
   Camera,
   ShieldCheck,
   KeyRound,
+  Fingerprint,
+  CreditCard,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Download, X, User, Rocket } from "lucide-react";
@@ -52,6 +54,18 @@ export default function Dashboard() {
       icon: User, // Import User from lucide-react
       link: "https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing",
       tech: "Professional Profile",
+    },
+    {
+      title: "2FA-Twilio Project – Multi-Factor Authentication System",
+      icon: Fingerprint,
+      link: "https://drive.google.com/file/d/1KG0UdBqZKhEPw_U_cM6radf39ZTHChJd/view?usp=sharing",
+      tech: "React.js • TypeScript • Node.js • Express.js • PostgreSQL • TypeORM • JWT Authentication • HttpOnly Cookies • Twilio SMS OTP • Email OTP • Google Authenticator (TOTP) • QR Code Authentication • bcrypt • Axios • React Router • Zustand • Tailwind CSS",
+    },
+    {
+      title: "Stripe E-Commerce Application – Full-Stack Online Shopping",
+      icon: CreditCard,
+      link: "https://drive.google.com/file/d/1a46kZdc0ZC8vnH3ri0Y1PkxZjPX28y-7/view?usp=sharing",
+      tech: "React 19 • TypeScript • Vite • Node.js • Express.js • PostgreSQL • TypeORM • JWT + HttpOnly Cookies • Product CRUD • Shopping Cart • Stripe Checkout • Stripe Webhooks • Axios • React Router • Tailwind CSS • Vercel • Render • Neon",
     },
     {
       title: "ReactShield Lab – Interactive React Security Training",
