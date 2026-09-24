@@ -105,4 +105,34 @@ remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
 To https://github.com/gvnaresshuser/gvnaressh-portfolio.git
    f0c67a9..518c518  main -> main
 
+-----------------------------
+E:\gvnaressh\gvnaressh>git add .
+
+E:\gvnaressh\gvnaressh>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   SCREENS/STEPS
+        new file:   src/pages/Dashboard copy 3.jsx
+        modified:   src/pages/Dashboard.jsx
+
+
+E:\gvnaressh\gvnaressh>git commit -m "add NEW label"
+[main 65b4173] add NEW label
+ 3 files changed, 754 insertions(+), 1 deletion(-)
+ create mode 100644 src/pages/Dashboard copy 3.jsx
+
+E:\gvnaressh\gvnaressh>git push
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 1.98 KiB | 75.00 KiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), completed with 4 local objects.
+To https://github.com/gvnaresshuser/gvnaressh-portfolio.git
+   518c518..65b4173  main -> main
+
 E:\gvnaressh\gvnaressh>

@@ -57,6 +57,13 @@ export default function Dashboard() {
       isNew: false,
     },
     {
+      title: "Paystack E-Commerce Application – Full-Stack E-Commerce Platform",
+      icon: ShoppingCart,
+      link: "YOUR_PAYSTACK_PROJECT_LINK",
+      tech: "React.js • TypeScript • Vite • Tailwind CSS • Node.js • Express.js • PostgreSQL • TypeORM • JWT Authentication • HttpOnly Cookies • Paystack Payment Gateway • Cash on Delivery • Axios • React Router • Role-Based Access Control",
+      isNew: true,
+    },
+    {
       title: "2FA-Twilio Project – Multi-Factor Authentication System",
       icon: Fingerprint,
       link: "https://drive.google.com/file/d/1KG0UdBqZKhEPw_U_cM6radf39ZTHChJd/view?usp=sharing",
