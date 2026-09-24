@@ -59,7 +59,7 @@ export default function Dashboard() {
     {
       title: "Paystack E-Commerce Application – Full-Stack E-Commerce Platform",
       icon: ShoppingCart,
-      link: "YOUR_PAYSTACK_PROJECT_LINK",
+      link: "https://drive.google.com/file/d/1L_LwbvTYenCD2bv2d1Btkj1suOz9WMtO/view?usp=sharing",
       tech: "React.js • TypeScript • Vite • Tailwind CSS • Node.js • Express.js • PostgreSQL • TypeORM • JWT Authentication • HttpOnly Cookies • Paystack Payment Gateway • Cash on Delivery • Axios • React Router • Role-Based Access Control",
       isNew: true,
     },
@@ -141,7 +141,7 @@ export default function Dashboard() {
   const TECHNOLOGIES = PROFILE.technologies;
   const STUDENTS_TRAINED = PROFILE.students;
 
-/*   
+  /*   
   console.log("EXPERIENCE:", EXPERIENCE);
   console.log("TRAINING:", TRAINING);
   console.log("TECHNOLOGIES:", TECHNOLOGIES);
@@ -150,7 +150,7 @@ export default function Dashboard() {
   console.count("Dashboard Render");
 
   useEffect(() => {
-     console.log("Dashboard Mounted");
+    console.log("Dashboard Mounted");
     const interval = setInterval(() => {
       // Start flip
       setFlip(true);
