@@ -1,3 +1,5 @@
+36953695
+
 npm create vite@latest gvnaressh
 
 https://tailwindcss.com/docs/installation/using-vite
@@ -22,9 +24,6 @@ This gives you a complete mini CRUD application:
 ✅ Axios API Integration
 ✅ Tailwind CSS Styling
 
-
-
-
 E:\gvnaressh\gvnaressh>git add .
 
 E:\gvnaressh\gvnaressh>git status
@@ -32,13 +31,12 @@ On branch main
 Your branch is up to date with 'origin/main'.
 
 Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   src/pages/Dashboard.jsx
-
+(use "git restore --staged <file>..." to unstage)
+modified: src/pages/Dashboard.jsx
 
 E:\gvnaressh\gvnaressh>git commit -m "Access token and Refresh token jwt"
 [main 3e49f87] Access token and Refresh token jwt
- 1 file changed, 7 insertions(+)
+1 file changed, 7 insertions(+)
 
 E:\gvnaressh\gvnaressh>git push
 Enumerating objects: 9, done.
@@ -49,11 +47,9 @@ Writing objects: 100% (5/5), 626 bytes | 626.00 KiB/s, done.
 Total 5 (delta 4), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
 To https://github.com/gvnaresshuser/gvnaressh-portfolio.git
-   eeba17c..3e49f87  main -> main
+eeba17c..3e49f87 main -> main
 
 E:\gvnaressh\gvnaressh>
-
-
 
 Microsoft Windows [Version 10.0.26100.8246]
 (c) Microsoft Corporation. All rights reserved.
@@ -63,12 +59,11 @@ E:\gvnaressh\gvnaressh>npm run dev
 > gvnaressh@0.0.0 dev
 > vite
 
+VITE v8.0.16 ready in 7060 ms
 
-  VITE v8.0.16  ready in 7060 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
+➜ Local: http://localhost:5173/
+➜ Network: use --host to expose
+➜ press h + enter to show help
 3:03:16 pm [vite] (client) hmr update /src/pages/Dashboard.jsx, /src/index.css
 3:05:08 pm [vite] (client) hmr update /src/pages/Dashboard.jsx, /src/index.css (x2)
 3:06:29 pm [vite] (client) hmr update /src/pages/Dashboard.jsx, /src/index.css (x3)
@@ -84,15 +79,15 @@ On branch main
 Your branch is up to date with 'origin/main'.
 
 Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   src/App.jsx
-        modified:   src/pages/Dashboard.jsx
+(use "git restore --staged <file>..." to unstage)
+modified: src/App.jsx
+modified: src/pages/Dashboard.jsx
 
-23-09-2026:
-===========
+# 23-09-2026:
+
 E:\gvnaressh\gvnaressh>git commit -m "Stripe & 2FA"
 [main 518c518] Stripe & 2FA
- 2 files changed, 23 insertions(+), 9 deletions(-)
+2 files changed, 23 insertions(+), 9 deletions(-)
 
 E:\gvnaressh\gvnaressh>git push
 Enumerating objects: 11, done.
@@ -103,9 +98,10 @@ Writing objects: 100% (6/6), 983 bytes | 163.00 KiB/s, done.
 Total 6 (delta 5), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
 To https://github.com/gvnaresshuser/gvnaressh-portfolio.git
-   f0c67a9..518c518  main -> main
+f0c67a9..518c518 main -> main
 
------------------------------
+---
+
 E:\gvnaressh\gvnaressh>git add .
 
 E:\gvnaressh\gvnaressh>git status
@@ -113,16 +109,15 @@ On branch main
 Your branch is up to date with 'origin/main'.
 
 Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   SCREENS/STEPS
-        new file:   src/pages/Dashboard copy 3.jsx
-        modified:   src/pages/Dashboard.jsx
-
+(use "git restore --staged <file>..." to unstage)
+modified: SCREENS/STEPS
+new file: src/pages/Dashboard copy 3.jsx
+modified: src/pages/Dashboard.jsx
 
 E:\gvnaressh\gvnaressh>git commit -m "add NEW label"
 [main 65b4173] add NEW label
- 3 files changed, 754 insertions(+), 1 deletion(-)
- create mode 100644 src/pages/Dashboard copy 3.jsx
+3 files changed, 754 insertions(+), 1 deletion(-)
+create mode 100644 src/pages/Dashboard copy 3.jsx
 
 E:\gvnaressh\gvnaressh>git push
 Enumerating objects: 14, done.
@@ -133,6 +128,6 @@ Writing objects: 100% (8/8), 1.98 KiB | 75.00 KiB/s, done.
 Total 8 (delta 5), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (5/5), completed with 4 local objects.
 To https://github.com/gvnaresshuser/gvnaressh-portfolio.git
-   518c518..65b4173  main -> main
+518c518..65b4173 main -> main
 
 E:\gvnaressh\gvnaressh>

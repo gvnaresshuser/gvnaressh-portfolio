@@ -10,7 +10,6 @@ import {
   KeyRound,
   Fingerprint,
   CreditCard,
-  Mail,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Download, X, User, Rocket } from "lucide-react";
@@ -257,7 +256,10 @@ export default function Dashboard() {
 
               {/* Intro */}
               <div className="text-center md:text-left flex-1">
-                {/*   <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mb-3">
+                {/*  <h1 className="text-5xl font-extrabold text-white mb-3">
+                  GV Naressh
+                </h1> */}
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mb-3">
                   <h1 className="text-3xl md:text-5xl font-extrabold text-white">
                     GV Naressh
                   </h1>                 
@@ -266,42 +268,6 @@ export default function Dashboard() {
                       📞 9949570732
                     </h1>
                   </a>
-                </div> */}
-                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-3">
-                  {/* Name */}
-                  <h1 className="text-3xl md:text-5xl font-extrabold text-white">
-                    GV Naressh
-                  </h1>
-
-                  {/* Contact Details */}
-                  <div className="flex flex-col items-center md:items-end">
-                    {/* Mobile Number */}
-                    <a href="tel:9949570732">
-                      <h1 className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-gradient cursor-pointer">
-                        📞 9949570732
-                      </h1>
-                    </a>
-
-                    {/* Email */}
-                    <a href="mailto:gvnaressh@gmail.com">
-                      {/* <h2 className="text-base md:text-1xl font-bold bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-gradient cursor-pointer">
-                        [ gvnaressh@gmail.com ]
-                      </h2> */}
-                      <h2 className="text-base md:text-[18px] font-bold bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-gradient cursor-pointer">
-                        [ gvnaressh@gmail.com ]
-                      </h2>
-                    </a>
-                    {/*    <a
-                      href="mailto:gvnaressh@gmail.com"
-                      className="flex items-center gap-2"
-                    >
-                      <Mail size={24} strokeWidth={2.5} />
-
-                      <h2 className="text-base md:text-2xl font-bold bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-gradient cursor-pointer">
-                        gvnaressh@gmail.com
-                      </h2>
-                    </a> */}
-                  </div>
                 </div>
 
                 <p className="text-xl text-cyan-300 font-semibold">
