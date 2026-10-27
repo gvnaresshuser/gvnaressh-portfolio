@@ -11,6 +11,7 @@ import {
   Fingerprint,
   CreditCard,
   Mail,
+  BrainCircuit,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Download, X, User, Rocket } from "lucide-react";
@@ -56,6 +57,13 @@ export default function Dashboard() {
       link: "https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing",
       tech: "Professional Profile",
       isNew: false,
+    },
+    {
+      title: "React + Express AI Integration – Multi-Provider AI Platform",
+      icon: BrainCircuit,
+      link: "https://drive.google.com/file/d/1x2Qb-dC18ryqSCQJXVCIVj8GYs79eR5B/view?usp=sharing",
+      tech: "React.js • TypeScript • Vite • Tailwind CSS • Node.js • Express.js • REST API • Google Gemini API • OpenAI API • NVIDIA API • @google/genai SDK • OpenAI SDK • AI Service Layer • Multi-Provider Integration • Environment Variables • API Key Management • Error Handling • AI Chat Interface",
+      isNew: true,
     },
     {
       title: "Paystack E-Commerce Application – Full-Stack E-Commerce Platform",
@@ -304,7 +312,7 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                <p className="text-xl text-cyan-300 font-semibold">
+                {/*  <p className="text-xl text-cyan-300 font-semibold">
                   Software Trainer | Full Stack Developer
                 </p>
 
@@ -314,66 +322,63 @@ export default function Dashboard() {
                   experience. Specializing in ReactJS, NodeJS, PostgreSQL,
                   NestJS, Java Spring Boot, Tailwind CSS, and modern full-stack
                   application development.
+                </p> */}
+
+                <p className="text-xl text-cyan-300 font-semibold">
+                  Corporate Software Trainer | Full-Stack Developer | AI/LLM
+                  Trainer
                 </p>
 
-                {/* <div
-                  onClick={() => navigate("/register")}
-                  className="group cursor-pointer flex items-center justify-end mb-[-20px]"
-                >
-                  <div className="flex items-center gap-3 bg-gradient-to-r from-pink-600 via-red-500 to-orange-500 text-white px-6 py-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 animate-bounce">
-                    <Rocket
-                      size={32}
-                      className="group-hover:rotate-45 transition duration-300"
-                    />
+                <p className="text-gray-200 mt-5 leading-8 max-w-3xl">
+                  <strong>
+                    {EXPERIENCE}+ years in the software industry and {TRAINING}+
+                    years of training experience.
+                  </strong>{" "}
+                  I deliver practical, project-based training for corporate
+                  teams, working professionals, and students.
+                </p>
+                <p className="text-gray-200 mt-3 leading-8 max-w-3xl">
+                  Training in{" "}
+                  <strong>
+                    React.js, Node.js, NestJS, PostgreSQL, Next.js, Java Spring
+                    Boot, and AI/LLM integration
+                  </strong>
+                  —with a focus on real-world applications and hands-on
+                  learning.
+                </p>
 
-                    <div>
-                      <h3 className="font-bold text-lg">Register Now</h3>
-                      <p className="text-xs">🎉 Free Demo Class</p>
-                    </div>
-                  </div>
-                </div>
- */}
-                <div
-                  onClick={() => navigate("/register")}
-                  className="mt-8 flex justify-center md:justify-end"
-                >
-                  <button
-                    className="
-      group
-      relative
-      overflow-hidden
-      flex items-center gap-3
-      rounded-full
-      bg-gradient-to-r
-      from-fuchsia-600
-      via-pink-600
-      to-orange-500
-      px-6 py-3
-      md:px-8 md:py-4
-      text-white
-      shadow-2xl
-      hover:scale-105
-      transition-all
-      duration-300
-       transition-all duration-300 animate-bounce
-    "
+                {/* Corporate clients first; student registration remains available. */}
+                <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3 justify-center md:justify-start">
+                  <a
+                    href="mailto:gvnaressh@gmail.com?subject=Corporate%20Training%20Enquiry&body=Hello%20Naressh%2C%0A%0AWe%20would%20like%20to%20discuss%20a%20training%20requirement.%0A%0ATechnology%2FCourse%3A%0ANumber%20of%20Participants%3A%0APreferred%20Duration%3A%0AExpected%20Start%20Date%3A%0ATraining%20Mode%20(Online%2FClassroom)%3A%0ACompany%3A%0AContact%20Person%3A%0A%0AThank%20you."
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 font-bold text-white shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-300"
                   >
-                    {/* Shine Effect */}
-                    <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-white/20 skew-x-12 transition-transform duration-700"></span>
-
-                    <Rocket
-                      size={22}
-                      className="relative group-hover:rotate-45 transition duration-300"
-                    />
-
-                    <div className="relative text-left">
-                      <div className="font-bold text-sm md:text-lg">
-                        Register Now
-                      </div>
-                      <div className="text-[11px] md:text-xs opacity-90">
-                        🎉 Free Demo Class
-                      </div>
-                    </div>
+                    <Mail size={19} />
+                    Discuss Corporate Training
+                  </a>
+                  <a
+                    href="https://wa.me/919949570732?text=Hello%20Naressh%2C%20I%20would%20like%20to%20discuss%20a%20training%20requirement."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/50 bg-white/10 px-5 py-3 font-semibold text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 32 32"
+                      className="h-5 w-5 shrink-0"
+                      fill="currentColor"
+                    >
+                      <path d="M16.04 3.2A12.65 12.65 0 0 0 5.18 22.34L3.5 28.5l6.32-1.66A12.65 12.65 0 1 0 16.04 3.2Zm0 23.05c-1.95 0-3.86-.52-5.53-1.5l-.4-.23-3.75.98 1-3.65-.26-.42a10.1 10.1 0 1 1 8.94 4.82Zm5.55-7.56c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" />
+                    </svg>
+                    WhatsApp Me
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => navigate("/register")}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-5 py-3 font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
+                  >
+                    <Rocket size={18} />
+                    Explore Courses
                   </button>
                 </div>
               </div>
