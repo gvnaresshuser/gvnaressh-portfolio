@@ -12,6 +12,7 @@ import {
   CreditCard,
   Mail,
   BrainCircuit,
+  Sparkles,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Download, X, User, Rocket } from "lucide-react";
@@ -57,6 +58,13 @@ export default function Dashboard() {
       link: "https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing",
       tech: "Professional Profile",
       isNew: false,
+    },
+    {
+      title: "React + AI E-Commerce Platform – RAG Integration",
+      icon: Sparkles,
+      link: "https://drive.google.com/file/d/1ane5I3gwnSSGAogHoTNrOOSkZEROI3P-/view?usp=sharing",
+      tech: "React.js • TypeScript • Vite • Tailwind CSS • Node.js • Express.js • REST APIs • Google Gemini AI • LLM Integration • Prompt Engineering • Retrieval-Augmented Generation (RAG) • Text Embeddings • PostgreSQL • NeonDB • pgvector • Vector Search • Hybrid Search • Semantic Search • TypeORM • AI Product Search • AI Chatbot • Product Recommendations • JWT Authentication • Razorpay Payment Integration",
+      isNew: true,
     },
     {
       title: "React + Express AI Integration – Multi-Provider AI Platform",
