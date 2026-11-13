@@ -25,7 +25,7 @@ export default function App() {
     }`;
 
   const verifyPassword = () => {
-    if (password === "41864186") {
+    if (password === "6666") {
       setShowUsers(true);
       setShowPasswordModal(false);
       setPassword("");
