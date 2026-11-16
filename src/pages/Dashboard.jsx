@@ -13,6 +13,7 @@ import {
   Mail,
   BrainCircuit,
   Sparkles,
+  Workflow,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Download, X, User, Rocket } from "lucide-react";
@@ -58,6 +59,13 @@ export default function Dashboard() {
       link: "https://drive.google.com/file/d/19AJqeDX1yP2DuKmxH0SV_7APHbAOG29f/view?usp=sharing",
       tech: "Professional Profile",
       isNew: false,
+    },
+    {
+      title: "AI Business Assistant Agent – AI Assistant & RAG Integration",
+      icon: Workflow,
+      link: "https://drive.google.com/file/d/1a5SS8UHnPaXdGvY53ppSpyG_9Y5Bs2z1/view?usp=sharing",
+      tech: "React.js • TypeScript • Vite • Tailwind CSS • React Router • Axios • Node.js • Express.js • REST APIs • PostgreSQL • Google Gemini AI • Google Generative AI SDK • LLM Integration • Prompt Engineering • AI Agent Workflow • Tool Calling • Function Calling • Retrieval-Augmented Generation (RAG) • Text Embeddings • pgvector • Vector Search • Semantic Search • Document Processing (PDF, DOCX, TXT) • Business Knowledge Retrieval • AI Business Assistant • AI-Powered Business Insights • JWT Authentication • Role-Based Access Control • Git • GitHub",
+      isNew: true,
     },
     {
       title: "React + AI E-Commerce Platform – RAG Integration",
